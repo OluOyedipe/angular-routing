@@ -8,19 +8,23 @@ import { ProductFilterPipe } from './product-filter.pipe';
 import { ProductService } from './product.service';
 
 import { SharedModule } from '../shared/shared.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
-  imports: [
-    SharedModule
-  ],
-  declarations: [
-    ProductListComponent,
-    ProductDetailComponent,
-    ProductEditComponent,
-    ProductFilterPipe
-  ],
-  providers: [
-    ProductService
-  ]
+    imports: [
+        SharedModule,
+        RouterModule.forChild([
+            {path: 'products', component: ProductListComponent}
+        ])
+    ],
+    declarations: [
+        ProductListComponent,
+        ProductDetailComponent,
+        ProductEditComponent,
+        ProductFilterPipe
+    ],
+    providers: [
+        ProductService
+    ]
 })
 export class ProductModule {}
